@@ -1,0 +1,43 @@
+mappings
+
+get = retrieve resource details
+post = create new resource
+put = update resource
+patch = update part of resource
+delete = delete a resource
+
+
+Users rest api
+retrieve all users
+  get/users
+
+crate a user
+  post/users
+
+retrieve one user
+  get /users/{id} -> /users/1
+
+delete a specific user
+  delete /users/{id} -> /users/1
+
+Posts rest api
+
+retrieve all posts for a user
+GET /users/{id}/posts
+
+create a post
+POST /users/{id}/posts
+
+Retrieve details of a post
+
+GET /users/{id}/posts/{post_id}
+
+
+Hibernate: drop table if exists post cascade
+Hibernate: drop table if exists user_details cascade
+Hibernate: drop sequence if exists post_seq
+Hibernate: drop sequence if exists user_details_seq
+Hibernate: create sequence post_seq start with 1 increment by 50
+Hibernate: create sequence user_details_seq start with 1 increment by 50
+Hibernate: create table post (id integer not null, description varchar(255), user_id integer, primary key (id))
+Hibernate: create table user_details (id integer not null, birth_date date, name varchar(255), primary key (id))
